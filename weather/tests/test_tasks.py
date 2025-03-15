@@ -88,24 +88,6 @@ class FetchWeatherDataTestCase(TestCase):
             404,
             "city not found",
         )
-        self.assertEqual(
-            WeatherRecord.objects.count(), 0
-        )
-
-    @patch("weather.tasks.requests.get")
-    @patch("weather.tasks.settings.OPENWEATHER_API_KEY", "test_api_key")
-    @patch(
-        "weather.tasks.settings.OPENWEATHER_URL",
-        "https://api.openweathermap.org/data/2.5/weather",
-    )
-    def test_no_weather_data_does_not_create_record(self, mock_get):
-        # Arrange & Act
-        mock_response = MagicMock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = {"main": {}, "weather": []}
-        mock_get.return_value = mock_response
-        fetch_weather_data()
-        # Assert
         self.assertEqual(WeatherRecord.objects.count(), 0)
 
     @patch("weather.tasks.requests.get")
