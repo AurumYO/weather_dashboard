@@ -31,8 +31,8 @@ class CityModelTest(TestCase):
 
     def test_field_max_lengths(self):
         # Arrange
-        name_field = City._meta.get_field('name')
-        country_field = City._meta.get_field('country')
+        name_field = City._meta.get_field("name")
+        country_field = City._meta.get_field("country")
         # Act & Assert
         self.assertEqual(name_field.max_length, 100)
         self.assertEqual(country_field.max_length, 50)
