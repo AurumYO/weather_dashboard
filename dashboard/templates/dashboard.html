@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Dashboard</title>
+    <!-- Link to custom styles -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <!-- Load Chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <section id="current-weather">
+            <h2>Current Weather</h2>
+            <div id="weather-list">
+                <!-- Dynamic content -->
+            </div>
+        </section>
+        <section id="chart-container">
+            <h2>Temperature Trends (City ID 1)</h2>
+            <canvas id="tempChart"></canvas>
+        </section>
+    </main>
+    
+    <!-- Link to custom JavaScript -->
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+
+</html>
