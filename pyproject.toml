@@ -7,11 +7,15 @@ authors = [
 ]
 readme = "README.md"
 package-mode = false
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "python-dotenv (>=1.0.1,<2.0.0)",
     "psycopg2-binary (>=2.9.10,<3.0.0)",
-    "django (>=5.1.7,<6.0.0)"
+    "django (>=5.1.7,<6.0.0)",
+    "django-celery-beat (>=2.7.0,<3.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "redis (>=5.2.1,<6.0.0)",
+    "celery (>=5.4.0,<6.0.0)"
 ]
 
 

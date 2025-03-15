@@ -1,4 +1,5 @@
 import os
+from celery.schedules import crontab
 from dotenv import load_dotenv
 from pathlib import Path
 
@@ -156,3 +157,21 @@ LOGGING = {
     },
 }
 
+# OpenWeather API Key
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+OPENWEATHER_URL = os.getenv("OPENWEATHER_URL")
+
+# Celery settings
+CELERY_BROKER_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = CELERY_BROKER_URL
+
+# Schedule the task to run every hour
+CELERY_BEAT_SCHEDULE = {
+    "fetch-weather-every-hour": {
+        "task": "weather.tasks.fetch_weather_data",
+        "schedule": crontab(
+            minute=0,
+            hour="*",
+        ),
+    },
+}

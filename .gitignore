@@ -67,3 +67,10 @@ celerybeat.pid
 
 # Ignore MacOS Files
 .DS_Store
+
+# Ignore Celery Beat
+celerybeat-schedule
+celerybeat-schedule-*
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
