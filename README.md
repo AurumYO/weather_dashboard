@@ -1,5 +1,118 @@
 # Weather Dashboard Project
 
+## 🚀 Getting Started
+
+This project is a Django-based API for retrieving and storing weather data, with Celery for background task processing.
+
+### 🔹 Prerequisites
+
+Make sure you have the following installed:
+
+- [Python 3.12+](https://www.python.org/downloads/)
+- [Poetry](https://python-poetry.org/docs/#installation)
+- [Redis (for Celery)](https://redis.io/download/) _(Ensure Redis server is running)_
+
+---
+
+## 🔹 Installation & Setup
+
+### 1️⃣ **Clone the Repository**
+
+```bash
+git clone https://github.com/your-username/weather-dashboard.git
+cd weather-dashboard
+```
+
+## 2️⃣ Install Dependencies with Poetry
+
+```bash
+poetry install
+```
+
+## 3️⃣ Create and Activate Virtual Environment
+
+```bash
+poetry shell
+```
+
+4️⃣ Set Up Environment Variables
+
+```bash
+touch .env
+```
+
+Add the following environment variables:
+
+- DEBUG=True
+- SECRET_KEY=your-secret-key
+- OPENWEATHER_API_KEY=your-api-key
+- OPENWEATHER_URL=https://api.openweathermap.org/data/2.5/weather
+- CELERY_BROKER_URL=redis://localhost:6379/0
+
+## 🔹 Database Migrations
+
+Run the following commands to set up the database:
+
+```bash
+poetry run python manage.py migrate
+```
+
+(Optional) Create a superuser:
+
+```bash
+poetry run python manage.py createsuperuser
+```
+
+## 🔹 Running the App
+
+Start the Django Development Server
+
+```bash
+poetry run python manage.py runserver
+
+```
+
+Django app will be available at: http://127.0.0.1:8000/dashboard/
+
+## 🔹 Running Celery
+
+Start Redis (if not running)
+
+```bash
+redis-server
+
+```
+
+or (if running via Docker)
+
+```bash
+docker run --name redis -p 6379:6379 -d redis
+
+```
+
+Run Celery Worker
+
+```bash
+poetry run celery -A weather_dashboard worker --loglevel=info
+
+```
+
+Run Celery Beat (for periodic tasks)
+
+```bash
+poetry run celery -A weather_dashboard beat --loglevel=info
+
+```
+
+## 🔹 Running Tests
+
+Run unit tests:
+
+```bash
+poetry run python manage.py test
+
+```
+
 ## Populating CityWeather Data
 
 To populate the City model with City data from the populate_cities.py, use the following command:
