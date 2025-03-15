@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # 3-rd parties
+    "drf_yasg",
     "rest_framework",
     # Project apps
     "weather",
@@ -178,3 +179,5 @@ CELERY_BEAT_SCHEDULE = {
         ),
     },
 }
+
+CONTACT_EMAIL = os.getenv("CONTACT_EMAIL")

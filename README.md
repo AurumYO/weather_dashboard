@@ -28,9 +28,25 @@ Environment variables are set (if required for the API key).
 
 ## API Endpoints Documentation
 
+## 📌 API Documentation with Swagger
+
+This project includes **Swagger UI** for exploring and testing the API.
+
+### 🔹 Access API Documentation
+
+- **Swagger UI:** [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
+- **ReDoc UI:** [http://127.0.0.1:8000/redoc/](http://127.0.0.1:8000/redoc/)
+- **OpenAPI JSON Schema:** [http://127.0.0.1:8000/swagger.json](http://127.0.0.1:8000/swagger.json)
+
+### 🔹 Install Swagger (If Not Installed)
+
+```bash
+poetry install
+```
+
 ### GET `/api/weather/`
 
-**Description:**  
+**Description:**
 Retrieves a list of all cities along with their latest weather record. This endpoint provides a summary of the current weather conditions for each city in your database.
 
 **Response Format:**
